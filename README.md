@@ -1,6 +1,6 @@
 # ToDo List App
 
-This is a simple web application for managing a todo list. It allows users to sign up, log in, add tasks, update tasks, and delete tasks.
+This is a simple web application for managing a to-do list. It allows users to sign up, log in, add tasks, update tasks, and delete tasks.
 
 ## Features
 
@@ -11,18 +11,19 @@ This is a simple web application for managing a todo list. It allows users to si
 ## File Structure
 
 The file structure of the application is as follows:
-  **ToDo List**
-        **└──├── app.py** 
-		   **├── requirements.txt** 
-		   **├── templates** 
-		     **└──signin.html** 
-			 **├── signup.html** 
-			 **└── tasks.html** 
-		   **├── static** 
-			 **└── style.css** 
-		   **├──  instance**
-			 **└── todos.db** 
-
+```
+  ToDo List
+        ├──── app.py
+        ├── requirements.txt
+        ├── templates
+                 └──signin.html
+                 ├── signup.html
+                 └── tasks.html
+        ├── static
+                 └── style.css
+        ├──  instance
+                  └── todos.db
+```
 ## File Descriptions
 
 -   **`app.py`:** The main Flask application file that contains the core logic and routes for the todo list application.
@@ -33,7 +34,7 @@ The file structure of the application is as follows:
     -   **`tasks.html`:** The task list page template.
 -   **`static/`:** A directory that contains static assets such as CSS stylesheets and JavaScript files.
     -   **`style.css`:** The CSS styles for the HTML templates.
--   **`todos.db`:** The SQLite database file that stores the tasks and user information.
+-   **` todos.db`:** The SQLite database file that stores the tasks and user information.
 
 ## Getting Started
 
