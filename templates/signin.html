@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDo List</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+<body>
+        <h1>Sign In</h1>
+        <form method="POST">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter Username" required><br>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter Password" required><br>
+            <div align="center">
+                <button type="submit">Sign In</button>
+            </div>
+        </form>
+    <div align="center">
+        <a href="{{ url_for('register') }}">Don't have an account? Sign up</a>
+    </div>
+</body>
+</html>
