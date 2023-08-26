@@ -3,3 +3,4 @@ Flask-Login
 SQLAlchemy
 Flask-WTF
 gunicorn
+Flask-SQLAlchemy
