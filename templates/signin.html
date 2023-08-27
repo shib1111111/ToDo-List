@@ -8,10 +8,19 @@
         <h1>Sign In</h1>
         <form method="POST">
             <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Enter Username" required><br>
+            <input type="text" id="username" name="username" placeholder="Enter Username" autocomplete="on" required><br>
 
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter Password" required><br>
+            <input type="password" id="password" name="password" placeholder="Enter Password" autocomplete="on" required><br>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              <div class="flash-messages">
+                {% for message in messages %}
+                <div class="flash-message">{{ message }}</div>
+                {% endfor %}
+              </div>
+            {% endif %}
+          {% endwith %}
             <div align="center">
                 <button type="submit">Sign In</button>
             </div>

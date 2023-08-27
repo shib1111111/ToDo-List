@@ -9,7 +9,7 @@
 
 <body>
     <h1>ToDo List</h1>
-
+ 
     <form method="POST">
         <input type="text" name="title" placeholder="Task title" required>
         <input type="text" name="description" placeholder="Task description" required>
@@ -35,67 +35,18 @@
     {% endfor %}
     </div>
 
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="flash-messages">
+        {% for message in messages %}
+        <div class="flash-message">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+
     <a href="{{ url_for('logout') }}">Logout</a>
-
-    <script>
-
-        function deleteTask(taskId) {
-            if (confirm("Are you sure you want to delete this task?")) {
-                fetch(`/tasks/delete/${taskId}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert("Task deleted successfully!");
-                        window.location.reload(); // Refresh the page to update the task list
-                    } else {
-                        alert("Failed to delete the task.");
-                    }
-                })
-                .catch(error => {
-                    console.error("Error:", error);
-                });
-            }
-        }
-
-
-    function openUpdatePopup(taskId, currentTitle, currentDescription) {
-        var newTitle = prompt("Enter new title:", currentTitle);
-        var newDescription = prompt("Enter new description:", currentDescription);
-        
-        if (newTitle !== null && newDescription !== null) {
-            var data = {
-                title: newTitle,
-                description: newDescription
-            };
-
-            fetch(`/tasks/update/${taskId}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert("Task updated successfully!");
-                    window.location.reload(); // Refresh the page to update the task list
-                } else {
-                    alert("Failed to update the task.");
-                }
-            })
-            .catch(error => {
-                console.error("Error:", error);
-            });
-        }
-    }
-</script>
-
-
+<script src="static/tasks.js"></script>
 </body>
 </html>
