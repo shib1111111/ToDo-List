@@ -1,5 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask import Flask, render_template, request, redirect, url_for, jsonify,flash
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 
 
@@ -15,6 +15,8 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(200), nullable=False)
+
 
 class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -40,10 +42,22 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        user = User(username=username, password=password)
-        db.session.add(user)
-        db.session.commit()
-        return redirect(url_for('login'))
+        email = request.form['email']
+
+        user = User.query.filter_by(username=username).first()
+        if user and user.email == email and user.password == password :
+            flash("Please Login , You already have account!!!",'success')
+            return redirect(url_for('login'))
+        
+        elif user and user.email == email and user.password != password :
+            flash("Please use other email and Username",'error')
+            return redirect(url_for('register'))
+        else:
+            user = User(username=username,email = email, password=password)
+            db.session.add(user)
+            db.session.commit()
+            flash("You are successfully signed up , now login ...",'success')
+            return redirect(url_for('login'))
     return render_template('signup.html')
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -54,8 +68,10 @@ def login():
         user = User.query.filter_by(username=username).first()
         if user and user.password == password:
             login_user(user)
+            flash("You are successfully logged in...",'success')
             return redirect(url_for('tasks'))
-        return redirect(url_for('login'))
+        else:
+            flash("Invalid Username or Password",'error')
     return render_template('signin.html')
 
 
@@ -68,6 +84,7 @@ def tasks():
         task = Task(title = title, description=description, user=current_user)
         db.session.add(task)
         db.session.commit()
+        flash("You are successfully added a new task...",'success')
         return redirect(url_for('tasks'))
     tasks = Task.query.filter_by(user=current_user).all()
     return render_template('tasks.html', tasks=tasks)
