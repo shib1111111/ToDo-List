@@ -6,7 +6,7 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 db = SQLAlchemy()
 
 def create_database():
-    if not path.exists("instance/"+"todos.db"):
+    if not path.exists("todos.db"):
         db.create_all()
         print("Created database!")
         
