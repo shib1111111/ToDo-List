@@ -10,15 +10,14 @@ def create_database():
         db.create_all()
         print("Created database!")
         
-def create_app():
-    app = Flask(__name__)
-    app.config['SECRET_KEY'] = 'cf559170bf7a85a6f3f7e4dcfdb5bc11'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todos.db'
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'cf559170bf7a85a6f3f7e4dcfdb5bc11'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todos.db'
 
-    db.init_app(app)
-    # Push the app context
-    app.app_context().push()
-    create_database()
+db.init_app(app)
+# Push the app context
+app.app_context().push()
+create_database()
 login_manager = LoginManager(app)
 
 
@@ -141,5 +140,4 @@ def logout():
 
 
 if __name__=="__main__":
-    app = create_app()
     app.run(debug=False,host = '0.0.0.0')
