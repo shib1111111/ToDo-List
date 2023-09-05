@@ -121,7 +121,7 @@
 .flash-messages {
   text-align: center;
   position: fixed;
-  bottom: 20px;
+  bottom: 45px;
   left: 50%;
   transform: translateX(-50%);
   padding: 10px;
