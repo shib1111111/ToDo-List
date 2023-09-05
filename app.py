@@ -1,12 +1,12 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, render_template, request, redirect, url_for, jsonify,flash
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
-
+import os
 
 db = SQLAlchemy()
 
 def create_database():
-    if not path.exists("todos.db"):
+    if not os.path.exists("instance/todos.db"):
         db.create_all()
         print("Created database!")
         
