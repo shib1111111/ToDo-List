@@ -19,8 +19,7 @@ def create_app():
     # Push the app context
     app.app_context().push()
     create_database()
-
-    login_manager = LoginManager(app)
+login_manager = LoginManager(app)
 
 
 # Database Models
