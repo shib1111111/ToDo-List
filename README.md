@@ -38,19 +38,28 @@ The file structure of the application is as follows:
 ## Screenshots
 
 <table align="center">
-  ### Index or Login Page
   <tr>
-    <td><img src="screenshots/index_page.jpg" alt="Index Page" width="1800" height="600"/></td>
-  </tr>  
- ### Register Page
+    <td><img src="screenshots/index_page.jpg" alt="Index Page" width="1500" height="600"/></td>
+  </tr>  <br>
   <tr>
-    <td><img src="screenshots/register_page.jpg" alt="Register Page" width="1800" height="600"/></td>
-  </tr>
- ### Home Page
-  <tr>
-    <td><img src="screenshots/home_page.jpg" alt="Home Page"  align="center" width="1800" height="600"/></td>
+    <td><em>Index or Login Page</em></td>
   </tr>
 
+  <tr>
+    <td><img src="screenshots/register_page.jpg" alt="Register Page" width="1500" height="600"/></td>
+  </tr>  <br>
+
+  <tr>
+    <td><em>Register Page</em></td>
+  </tr>
+ 
+  <tr>
+    <td><img src="screenshots/home_page.jpg" alt="Home Page"  align="center" width="1500" height="600"/></td>
+  </tr>
+  <br>
+    <tr>
+    <td><em>Home Page</em></td>
+  </tr>
 </table>
 ## Getting Started
 
