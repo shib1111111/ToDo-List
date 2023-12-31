@@ -35,7 +35,27 @@ The file structure of the application is as follows:
 -   **`static/`:** A directory that contains static assets such as CSS stylesheets and JavaScript files.
     -   **`style.css`:** The CSS styles for the HTML templates.
 -   **` todos.db`:** The SQLite database file that stores the tasks and user information.
+## Screenshots
 
+<table align="center">
+  <tr>
+    <td><img src="screenshots/index_page.jpg" alt="Index Page" width="1500" height="600"/></td>
+  </tr>
+  <tr>
+    <td><em>Index or Login Page</em></td>
+  </tr>
+
+  <tr>
+    <td><img src="screenshots/register_page.jpg" alt="Register Page" width="1500" height="600"/></td>
+  </tr>
+  <tr>
+    <td><em>Register Page</em></td>
+  </tr>
+ 
+  <tr>
+    <td><img src="screenshots/home_page.jpg" alt="Home Page"  align="center" width="1500" height="600"/></td>
+  </tr>
+</table>
 ## Getting Started
 
 To run the News Classifier web application, follow these steps:
